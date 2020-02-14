@@ -48,9 +48,13 @@ function processFirstItem(stringList, callback) {
  * [2] Invoking `processLength` passing `[]` and `(num) => "There are " + num`,
  * should return "There are 0".
 */
-function processLength(/* CODE HERE */) {
+function processLength(list,callback) {
   /* CODE HERE */
+  return(callback(list,num));
 }
+const FBlist = ["foo", "bar"];
+const num = 212;
+
 
 /**
  * ### Challenge `processLastItem`
@@ -274,10 +278,34 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
+function counterMakerWithLimit(maxValue) {
   /* CODE HERE */
+  let count = 0;
+  if (count>=0){
+  return function() {
+    if (count <= maxValue){
+    return count ++;
+  }
+  else if (count > maxValue){
+    count=0;
+    return count;
+
+}
+  }}
 }
 
+const upperLimit = 7;
+const counter = counterMakerWithLimit(upperLimit);
+
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////

@@ -49,11 +49,18 @@ function processFirstItem(stringList, callback) {
  * should return "There are 0".
 */
 function processLength(list,callback) {
-  /* CODE HERE */
-  return(callback(list,num));
+  return callback();
+  
 }
+
 const FBlist = ["foo", "bar"];
-const num = 212;
+
+function announce(num){
+  return `There are ${FBlist.length}`;
+}
+
+console.log(processLength(FBlist, announce));
+
 
 
 /**
@@ -70,9 +77,12 @@ const num = 212;
  * Invoking `processLastItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'barbar'.
 */
-function processLastItem(/* CODE HERE */) {
+function processLastItem(stringList, callback) {
+  callback(string);
   /* CODE HERE */
 }
+
+
 
 /**
  * ### Challenge `processSum`

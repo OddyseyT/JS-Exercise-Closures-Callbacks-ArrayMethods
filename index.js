@@ -48,20 +48,9 @@ function processFirstItem(stringList, callback) {
  * [2] Invoking `processLength` passing `[]` and `(num) => "There are " + num`,
  * should return "There are 0".
 */
-function processLength(list,callback) {
-  return callback();
-  
+function processLength(list, callback) {
+   return callback(list.length)
 }
-
-const FBlist = ["foo", "bar"];
-
-function announce(num){
-  return `There are ${FBlist.length}`;
-}
-
-console.log(processLength(FBlist, announce));
-
-
 
 /**
  * ### Challenge `processLastItem`
@@ -78,17 +67,11 @@ console.log(processLength(FBlist, announce));
  * should return 'barbar'.
 */
 function processLastItem(stringList, callback) {
-  return callback();
-}
   /* CODE HERE */
-function findLastItem(FBlist){
-  const x=FBlist.length;
-  let str = FBlist[x-1];
-  return str+str;
-  }
-
-console.log(FBlist, findLastItem);
-
+  let x = stringList.length;
+  let str = stringList[x-1];
+  return callback(str)
+}
 /**
  * ### Challenge `processSum`
  * 
@@ -106,8 +89,14 @@ console.log(FBlist, findLastItem);
  * [2] Invoking `processSum` passing `[]` and `(num) => num + 1000`,
  * should return 1000.
 */
-function processSum(/* CODE HERE */) {
+function processSum(numberList, callback) {  
   /* CODE HERE */
+  let sum=0;
+  for (let i=0; i< numberList.length; i ++){
+    sum = sum + numberList[i];
+  }
+     
+  return callback(sum);
 }
 
 /**
@@ -129,16 +118,11 @@ function processSum(/* CODE HERE */) {
  * should return 1000.
 */
 function processProduct(num1,num2, callback) {
-  return callback();
   /* CODE HERE */
-}
-let a = 15;
-let b = 20;
-function multiplyNums(a, b){
-  return `${a * b} is a big number`
+  let product = num1 * num2;
+  return callback(product);
 }
 
-console.log(a, b, multiplyNums);
 
 /**
  * ### Challenge `processContains`
@@ -161,11 +145,17 @@ console.log(a, b, multiplyNums);
  * should return "sad".
 */
 function processContains(item, list, callback) {
-  return callback();
+
   /* CODE HERE */
+  let bool = false;
+
+  for (let i=0; i< list.length; i ++){
+    if (list[i] === item) {
+      bool = true;} 
 }
+return callback(bool);
 
-
+}
 
 /**
  * ### Challenge `processDuplicateFree`
@@ -300,11 +290,19 @@ function tallyUpDonations(runners) {
 function counterMaker() {
   // BROKEN CODE STARTS
   const count = 0;
-  function counter(count) {
+  if (y > 0) {function counter(count) {
     return count++;
-  }
-  // BROKEN CODE ENDS
+  }}
+  else if (y=0) {
+   y++}
+
+  return count;// BROKEN CODE ENDS
 }
+
+let y = 0;
+const counter = counterMaker();
+console.log(counter);
+
 
 /**
  * ### Challenge `counterMakerWithLimit`
@@ -328,32 +326,29 @@ function counterMaker() {
 */
 function counterMakerWithLimit(maxValue) {
   /* CODE HERE */
-  let count = 0;
-  if (count>=0){
   return function() {
-    if (count <= maxValue){
-    return count ++;
-  }
-  else if (count > maxValue){
+    if (count < maxValue){
+    return count++;
+    }
+    else if (count >= maxValue){
     count=0;
     return count;
-
+  }
 }
-  }}
-}
-
+}  
+let count = 0;
 const upperLimit = 7;
-const counter = counterMakerWithLimit(upperLimit);
+const counter2 = counterMakerWithLimit(upperLimit);
 
-console.log(counter());
-console.log(counter());
-console.log(counter());
-console.log(counter());
-console.log(counter());
-console.log(counter());
-console.log(counter());
-console.log(counter());
-console.log(counter());
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////

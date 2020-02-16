@@ -243,8 +243,7 @@ function firstNamesAllCaps(runners) {
 */
 function getRunnersByTShirtSize(runners, tShirtSize) {
   /* CODE HERE */
-  const desiredTShirt = "S"
-  return runners.filter(runners => runners.tShirtSize === desiredTShirt);
+  return runners.filter(runners => runners.shirt_size === tShirtSize);
 }
 
 /**
@@ -281,16 +280,16 @@ function tallyUpDonations(runners) {
 */
 function counterMaker() {
   // BROKEN CODE STARTS
-
-  const count = 0;
-  return function counter(count) {
-    count++;
+  let count = 0;
+  
+  return function counter() {
+    return count++;
   }
 
   
 }
 
-const counter = counterMaker();
+
 
 
 
@@ -316,18 +315,19 @@ const counter = counterMaker();
 */
 function counterMakerWithLimit(maxValue) {
   /* CODE HERE */
-  return function() {
-    let count = 0;
-    if (count < maxValue){
+  let count = 0;
+  return function counter() {
+      if (count < maxValue){
     return count++;
     }
-    else if (count >= maxValue){
-    count=0;
-    return count;
+    else if (count === maxValue){
+     return count=0;
   }
+  return count;
 }
 }  
 
+const counter = counterMakerWithLimit(3);
 
 
 

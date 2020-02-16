@@ -201,8 +201,8 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
 function getFullNames(runners) {
   /* CODE HERE */
   let newArr = [];
-  runners.forEach(function(item){
-    newArr.push(runners.last_name, runners.first_name)
+  runners.forEach(function(id){
+    newArr.push(id.last_name, id.first_name)
   })
     return newArr;
   }
@@ -224,7 +224,7 @@ function getFullNames(runners) {
 function firstNamesAllCaps(runners) {
   /* CODE HERE */
 
-  runners.map(function(item) {
+  runners.map(function(id) {
     return runners.first_name.toUpperCase();
   })
 }
@@ -290,18 +290,19 @@ function tallyUpDonations(runners) {
 function counterMaker() {
   // BROKEN CODE STARTS
   const count = 0;
+  let y=0;
   if (y > 0) {function counter(count) {
     return count++;
   }}
   else if (y=0) {
-   y++}
+   y++
+  }
 
   return count;// BROKEN CODE ENDS
 }
 
-let y = 0;
 const counter = counterMaker();
-console.log(counter);
+
 
 
 /**
@@ -327,6 +328,7 @@ console.log(counter);
 function counterMakerWithLimit(maxValue) {
   /* CODE HERE */
   return function() {
+    let count = 0;
     if (count < maxValue){
     return count++;
     }
@@ -336,19 +338,10 @@ function counterMakerWithLimit(maxValue) {
   }
 }
 }  
-let count = 0;
-const upperLimit = 7;
-const counter2 = counterMakerWithLimit(upperLimit);
 
-console.log(counter2());
-console.log(counter2());
-console.log(counter2());
-console.log(counter2());
-console.log(counter2());
-console.log(counter2());
-console.log(counter2());
-console.log(counter2());
-console.log(counter2());
+
+
+
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////

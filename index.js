@@ -317,19 +317,15 @@ function counterMakerWithLimit(maxValue) {
   /* CODE HERE */
   let count = 0;
   return function counter() {
-      if (count < maxValue){
+      if (count <= maxValue){
     return count++;
+      }
+    else if (count > maxValue){
+      count=0;
+      return count++;
     }
-    else if (count === maxValue){
-     return count=0;
-  }
-  return count;
 }
 }  
-
-const counter = counterMakerWithLimit(3);
-
-
 
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////

@@ -202,12 +202,11 @@ function getFullNames(runners) {
   /* CODE HERE */
   let newArr = [];
   runners.forEach(function(id){
-    newArr.push(id.last_name, id.first_name)
+    let newID = (`${id.last_name}, ${id.first_name}`)
+    newArr.push(newID)
   })
     return newArr;
   }
-
-
 
 /**
  * ### Challenge `firstNamesAllCaps`
@@ -224,10 +223,10 @@ function getFullNames(runners) {
 function firstNamesAllCaps(runners) {
   /* CODE HERE */
 
-  runners.map(function(id) {
-    return runners.first_name.toUpperCase();
-  })
-}
+  const caps = runners.map(runners => runners.first_name.toUpperCase());
+    return caps;
+  }
+
 
 /**
  * ### Challenge `getRunnersByTShirtSize`
@@ -244,14 +243,8 @@ function firstNamesAllCaps(runners) {
 */
 function getRunnersByTShirtSize(runners, tShirtSize) {
   /* CODE HERE */
-  let desiredTShirt = "XL";
- 
-
-  
-  runners.filter(function(item) {
-    return runners.tShirtSize === desiredTShirt;
-    
-  })
+  const desiredTShirt = "S"
+  return runners.filter(runners => runners.tShirtSize === desiredTShirt);
 }
 
 /**
@@ -266,10 +259,9 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
 */
 function tallyUpDonations(runners) {
   /* CODE HERE */
-  const sum = runners.donations.reduce(function(total, amount){
-    return total+amount;
-  });
-
+   
+  const sum = runners.reduce((acc, runners) => acc + runners.donations, 0);
+    return sum;
 }
 /////////////// CLOSURES ///////////////
 /////////////// CLOSURES ///////////////
